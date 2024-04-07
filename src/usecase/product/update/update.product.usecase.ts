@@ -10,7 +10,6 @@ export default class UpdateProductUseCase {
     }
 
     async execute(input: InputUpdateProductDto): Promise<OutputUpdateProductDto> {
-        console.log(input)
         const product = await this.productRepository.find(input.id);
         await product.changeName(input.name);
         await product.changePrice(input.price);
